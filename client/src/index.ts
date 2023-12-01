@@ -1,0 +1,19 @@
+// imports
+import writeCommand from './utils/writeCommand';
+import banner from './commands/banner';
+
+// globals
+global.isLoading = false;
+global.version = '0.0.1';
+global.prefix = '> ';
+global.nick = 'guest';
+global.basicError = 'You have and error in your octopus syntax. Type "help" for more information.';
+
+const app = async () => {
+  await banner.execute();
+  console.log('Welcome to the alpha of octopus v4.0!');
+  console.log('Type "help" to see all available commands.');
+  writeCommand();
+};
+
+app();
