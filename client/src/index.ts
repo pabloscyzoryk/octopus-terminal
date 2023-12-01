@@ -9,11 +9,11 @@ global.prefix = '> ';
 global.nick = 'guest';
 global.basicError = 'You have and error in your octopus syntax. Type "help" for more information.';
 
-const app = async () => {
+
+// app
+(async () => {
   await banner.execute();
   console.log('Welcome to the alpha of octopus v4.0!');
   console.log('Type "help" to see all available commands.');
   writeCommand();
-};
-
-app();
+})();

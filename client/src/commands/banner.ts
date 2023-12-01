@@ -16,12 +16,8 @@ const createBanner = (logo: string) =>
 
 const execute = async (input?: string) => {
   global.isLoading = true;
-  let logo: string;
 
-  if (input === 'banner' || !input) logo = 'Octopus';
-  else logo = input.replace(/^banner\s/, '');
-
-  const banner = await createBanner(logo);
+  const banner = await createBanner(input || 'Octopus');
   console.log(banner);
 
   global.isLoading = false;

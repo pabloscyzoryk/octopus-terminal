@@ -7,16 +7,15 @@ const runCommand = (input: string) => {
   const command = commands.find(command => command.syntax.test(input));
 
   if (command) {
-    command.execute(input);
+    const args = input.split(' ').slice(1).join(' ');
+    command.execute(args);
     return;
   }
 
   const similar = commands.find(command => command.names.some(name => name.includes(input)));
   console.log(global.basicError);
 
-  if (similar) {
-    console.log(`Did you mean ${similar.usage}?`);
-  }
+  if (similar) console.log(`Did you mean ${similar.usage}?`);
 };
 
 export default runCommand;
