@@ -1,10 +1,11 @@
 // imports
 import { Server, type Socket } from 'socket.io';
+import type Message from './types/message';
 import express from 'express';
 import http from 'http';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 const server = http.createServer(app);
 
 const io = new Server(server, {
@@ -17,6 +18,8 @@ server.listen(PORT, () => {
 
 console.log('Server up and running! :)');
 
+const messages: Message[] = [];
+
 io.on('connection', (socket: Socket) => {
     console.log(`new connection: ${socket.id}`);
 
@@ -24,20 +27,13 @@ io.on('connection', (socket: Socket) => {
         console.log(`socket disconnected: ${socket.id}`);
     });
 
-    socket.on('message', (nickname: string, data: string) => {
-        io.emit('message', nickname, data, new Date());
+    socket.on('message',(message: Message) => {
+        messages.push(message);
+        io.emit('message', message);
     });
 
-    socket.on('typing', (nickname: string) => {
-        io.emit('typing', nickname);
-    });
-
-    socket.on('stop-typing', (nickname: string) => {
-        io.emit('stop-typing', nickname);
-    });
-
-    socket.on('clear-chat', () => {
-        io.emit('clear-chat');
+    socket.on('get-messages', () => {
+        io.emit('get-messages', messages);
     });
 
 });
