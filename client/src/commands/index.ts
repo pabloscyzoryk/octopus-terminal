@@ -7,7 +7,8 @@ import clear from './clear';
 import prefix from './prefix';
 import nick from './nick';
 import exit from './exit';
+import evaluate from './evaulate';
 
-const commands: Command[] = [banner, help, describe, clear, prefix, nick, exit];
+const commands: Command[] = [banner, help, describe, clear, prefix, nick, exit, evaluate];
 
 export default commands;
