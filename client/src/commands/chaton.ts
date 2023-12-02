@@ -4,20 +4,10 @@ import type Message from '../types/message';
 import writeCommand, { rl } from '../utils/writeCommand';
 import Command from '../types/command';
 import clearLastLines from '../utils/clearLastLines';
+import updateChat from '../utils/updateChat';
 
 let isChatLoading = false;
 let messages: Message[] = [];
-
-const updateChat = (data: Message[]) => {
-  if (data.length === 0) {
-    console.log('- No messages in chat -');
-    return;
-  }
-
-  data.forEach(message => {
-    console.log(`${message.nickname}: ${message.data}`);
-  });
-};
 
 const updateChatRealTime = (data: Message) => {
   console.log(`${data.nickname}: ${data.data}`);
