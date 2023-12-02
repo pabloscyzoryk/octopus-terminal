@@ -1,47 +1,32 @@
 {
-  "name": "octopus-client",
+  "name": "octopus-server",
   "version": "1.0.0",
-  "description": "client for octopus terminal software",
+  "description": "server for octopus terminal",
   "main": "index.js",
-  "bin": "dist/index.js",
   "scripts": {
     "start": "node ./dist/index.js --no-experimental-fetch",
     "build": "babel src --extensions \".ts\" --out-dir dist --watch",
-    "dev": "nodemon --quiet ./dist/index.js --no-experimental-fetch",
-    "make": "pkg -o ./package/octopus.exe .",
-    "debug": "pkg --debug --log=verbose -o ./package/octopus.exe .",
-    "octopus": "start ./package/octopus.exe"
+    "dev": "nodemon --quiet ./dist/index.js --no-experimental-fetch"
   },
   "keywords": [
     "ts",
     "typescript",
-    "cmd",
     "node",
+    "cmd",
     "terminal"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pabloscyzoryk/octopus-terminal.git"
-  },
   "author": "pabloscyzoryk",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/pabloscyzoryk/octopus-terminal/issues"
   },
   "homepage": "https://github.com/pabloscyzoryk/octopus-terminal#readme",
-  "pkg": {
-    "scripts": "dist/**/*.js",
-    "assets": [
-      "node_modules/figlet/fonts/Standard.flf",
-      ".env"
-    ],
-    "targets": [
-      "node18-win"
-    ],
-    "outputPath": "./package/"
-  },
   "dependencies": {
-    "@types/node": "^20.10.2"
+    "@types/node": "^20.10.2",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "socket.io": "^4.7.2",
+    "typescript": "^5.3.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.23.4",
