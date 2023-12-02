@@ -1,9 +1,10 @@
 // imports
 import readline from 'readline';
 import runCommand from './runCommand';
+import clearLastLines from './clearLastLines';
 
 // readline init
-const rl = readline.createInterface({
+export const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
@@ -14,6 +15,7 @@ const writeCommand = async () => {
     const input: string = await new Promise(resolve => {
       rl.question(prefix, resolve);
     });
+    clearLastLines(1);
     runCommand(input.trim());
   }
 };

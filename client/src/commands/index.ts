@@ -9,7 +9,8 @@ import nick from './nick';
 import exit from './exit';
 import evaluate from './evaulate';
 import echo from './echo';
+import chatOn from './chaton';
 
-const commands: Command[] = [banner, help, describe, clear, prefix, nick, exit, evaluate, echo];
+const commands: Command[] = [banner, help, describe, clear, prefix, nick, exit, evaluate, echo, chatOn];
 
 export default commands;
