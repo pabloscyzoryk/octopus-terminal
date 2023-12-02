@@ -11,7 +11,23 @@ import evaluate from './evaulate';
 import echo from './echo';
 import chatOn from './chaton';
 import chat from './chat';
+import talk from './talk';
+import roulette from './roulette';
 
-const commands: Command[] = [banner, help, describe, clear, prefix, nick, exit, evaluate, echo, chatOn, chat];
+const commands: Command[] = [
+  banner,
+  help,
+  describe,
+  clear,
+  prefix,
+  nick,
+  exit,
+  evaluate,
+  echo,
+  chatOn,
+  chat,
+  talk,
+  roulette,
+];
 
 export default commands;

@@ -21,7 +21,5 @@ export const socketDisconnect = () => {
 };
 
 export const isConnected = () => socket.connected;
-
 export const socketConnect = () => socket.connect();
-
 export const socketId = () => socket.id;
