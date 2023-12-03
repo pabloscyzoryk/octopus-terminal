@@ -13,6 +13,7 @@ import chatOn from './chaton';
 import chat from './chat';
 import talk from './talk';
 import roulette from './roulette';
+import ls from './ls';
 
 const commands: Command[] = [
   banner,
@@ -28,6 +29,7 @@ const commands: Command[] = [
   chat,
   talk,
   roulette,
+  ls
 ];
 
 export default commands;
