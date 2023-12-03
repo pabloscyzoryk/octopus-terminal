@@ -44,7 +44,7 @@ io.on('connection', async (socket: Socket) => {
   });
 
   socket.on('message', async (message: Message) => {
-    if(message.nickname.length > 15) {
+    if (message.nickname.length > 15) {
       return;
     }
 
@@ -64,12 +64,30 @@ io.on('connection', async (socket: Socket) => {
   });
 });
 
-// const serverCommand = async () => {
-//   while (true) {
-//     const input: string = await new Promise(resolve => {
-//       rl.question('server command: ', resolve);
-//     });
-//   }
-// };
+const serverCommand = async () => {
+  while (true) {
+    const input: string = await new Promise(resolve => {
+      rl.question('server command: ', resolve);
+    });
 
-// serverCommand();
+    switch (input) {
+      case 'exit': {
+        process.exit(0);
+      }
+      case 'clear': {
+        console.clear();
+        break;
+      }
+      case 'resetchat': {
+        await prisma.message.deleteMany();
+        break;
+      }
+      default: {
+        console.log(`- Command "${input}" not found -`);
+        break;
+      }
+    }
+  }
+};
+
+serverCommand();

@@ -43,7 +43,7 @@ const upload: Command = {
   names: ['upload'],
   description: 'Usage: "upload" <filepath1> <filepath2> ... ; uploads all files at <filepaths> to the server',
   syntax: new RegExp(/^upload\s.+/),
-  usage: '"upload" <file>',
+  usage: 'Usage: "upload" <filepath1> <filepath2> ... ',
   execute,
 };
 

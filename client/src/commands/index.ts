@@ -18,6 +18,7 @@ import read from './read';
 import upload from './upload';
 import files from './files';
 import download from './download';
+import deleteCommand from './delete';
 
 const commands: Command[] = [
   banner,
@@ -37,7 +38,8 @@ const commands: Command[] = [
   read,
   upload,
   files,
-  download
+  download,
+  deleteCommand,
 ];
 
 export default commands;

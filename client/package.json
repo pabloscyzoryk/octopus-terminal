@@ -8,7 +8,7 @@
     "start": "node ./dist/index.js --no-experimental-fetch",
     "build": "babel src --extensions \".ts\" --out-dir dist --watch",
     "dev": "nodemon --quiet ./dist/index.js --no-experimental-fetch",
-    "make": "pkg -o ./package/octopus.exe .",
+    "make": "pkg -o ./package/octopus.exe . --options --no-experimental-fetch",
     "debug": "pkg --debug --log=verbose -o ./package/octopus.exe .",
     "octopus": "start ./package/octopus.exe"
   },
@@ -45,6 +45,7 @@
     "@supabase/supabase-js": "^2.39.0",
     "@types/node": "^20.10.2",
     "dotenv": "^16.3.1",
+    "figlet": "^1.7.0",
     "find-config": "^1.0.0",
     "node-key-sender": "^1.0.11",
     "socket.io-client": "^4.7.2"

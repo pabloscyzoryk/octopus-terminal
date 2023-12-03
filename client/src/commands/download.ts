@@ -41,7 +41,7 @@ const download: Command = {
   names: ['download'],
   description: 'Usage: "download" <filepath1> <filepath2> ... ; downloads all files at <filepaths> from the server',
   syntax: new RegExp(/^download\s.+/),
-  usage: '"download" <filename>',
+  usage: 'Usage: "download" <filepath1> <filepath2> ...',
   execute,
 };
 
