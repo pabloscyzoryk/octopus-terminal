@@ -6,37 +6,42 @@ import path from 'path';
 import fs from 'fs';
 
 const execute = async (input: string) => {
-  const filepath = path.join(__dirname, input);
-  const filename = path.basename(input);
-
-  if (!fs.existsSync(filepath)) {
-    console.log('- File not found -');
-    return;
-  }
+  const filepaths = input.split(' ');
 
   global.isLoading = true;
 
-  const file = fs.readFileSync(filepath);
+  for (let i = 0; i < filepaths.length; i++) {
+    const filepath = path.join(__dirname, filepaths[i]);
+    const filename = path.basename(filepaths[i]);
 
-  const { error } = await supabase.storage.from('storage').upload(filename, file, {
-    upsert: true,
-  });
+    if (!fs.existsSync(filepath)) {
+      console.log(`- File ${filename} not found -`);
+      continue;
+    }
 
-  if (error) {
-    console.error('ERR: ' + error.message);
-    global.isLoading = false;
-    writeCommand();
-    return;
+    console.log('- Uploading file ' + filename + ' -');
+
+    const file = fs.readFileSync(filepath);
+
+    const { error } = await supabase.storage.from('storage').upload(filename, file, {
+      upsert: true,
+    });
+
+    if (error) {
+      console.error(`ERR (${filename}): ` + error.message);
+      continue;
+    }
+
+    console.log(`- File ${filename} uploaded successfully -`);
   }
 
   global.isLoading = false;
-  console.log(`- File ${filename} uploaded successfully -`);
   writeCommand();
 };
 
 const upload: Command = {
   names: ['upload'],
-  description: 'Usage: "upload" <filepath> ; uploads file at <filepath> to the server',
+  description: 'Usage: "upload" <filepath1> <filepath2> ... ; uploads all files at <filepaths> to the server',
   syntax: new RegExp(/^upload\s.+/),
   usage: '"upload" <file>',
   execute,
