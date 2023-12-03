@@ -7,7 +7,7 @@
     "start": "node ./dist/index.js --no-experimental-fetch",
     "build": "babel src --extensions \".ts\" --out-dir dist --watch",
     "dev": "nodemon --quiet ./dist/index.js --no-experimental-fetch",
-    "build-host": "npm install && babel src --extensions \".ts\" --out-dir dist --watch"
+    "build-host": "npm install && babel src --extensions \".ts\" --out-dir dist && prisma generate"
   },
   "keywords": [
     "ts",
