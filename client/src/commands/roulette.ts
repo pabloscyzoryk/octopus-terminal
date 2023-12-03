@@ -15,7 +15,7 @@ const execute = () => {
 
 const roulette: Command = {
   names: ['roulette', 'russian'],
-  description: 'Usage: "roulette:" or "russian" ; ever played russian roulette?',
+  description: 'Usage: "roulette" or "russian" ; ever played the russian roulette?',
   syntax: new RegExp(/^(roulette|russian)$/),
   usage: '"roulette" or "russian"',
   execute,

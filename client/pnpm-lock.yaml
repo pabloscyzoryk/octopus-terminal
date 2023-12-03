@@ -11,6 +11,9 @@ dependencies:
   dotenv:
     specifier: ^16.3.1
     version: 16.3.1
+  node-key-sender:
+    specifier: ^1.0.11
+    version: 1.0.11
   socket.io-client:
     specifier: ^4.7.2
     version: 4.7.2
@@ -2296,6 +2299,10 @@ packages:
       object.getownpropertydescriptors: 2.1.7
       semver: 5.7.2
     dev: true
+
+  /node-key-sender@1.0.11:
+    resolution: {integrity: sha512-vv2IXd8QdZBFYXaIy02uy2rK6EKj+tOTEuoTxJKS9l8zw8Cz6DeLffR8ompj7N2A3h6XK7aiy+YAcTaeOqwp2Q==}
+    dev: false
 
   /node-releases@2.0.14:
     resolution: {integrity: sha512-y10wOWt8yZpqXmOgRo77WaHEmhYQYGNA6y421PKsKYWEK8aW+cqAphborZDhqfyKrbZEN92CN1X2KbafY2s7Yw==}

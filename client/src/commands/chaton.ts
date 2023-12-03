@@ -9,24 +9,20 @@ import updateChat from '../utils/updateChat';
 let isChatLoading = false;
 let messages: Message[] = [];
 
-const updateChatRealTime = (data: Message) => {
-  console.log(`${data.nickname}: ${data.data}`);
-};
-
 const writeMessage = async () => {
   while (true) {
     if (isChatLoading) {
       break;
     }
-    const input: string = await new Promise(resolve => {
-      rl.question('Enter message: ', resolve);
-    });
+
+    let input = '';
+    do {
+      input = await new Promise(resolve => {
+        rl.question('Enter message: ', resolve);
+      });
+    } while(!input.trim())
 
     clearLastLines(2);
-
-    if (!input.trim()) {
-      return;
-    }
 
     switch (input) {
       case 'chatoff': {
@@ -71,8 +67,9 @@ const execute = () => {
   });
 
   socketOn('message', message => {
+    isChatLoading = true;
     messages.push(message);
-    updateChatRealTime(message);
+    updateChat(messages);
     isChatLoading = false;
     writeMessage();
   });

@@ -1,9 +1,12 @@
 // imports
 import { Server, type Socket } from 'socket.io';
+import { PrismaClient } from '@prisma/client';
 import type Message from './types/message';
 import readline from 'readline';
 import express from 'express';
 import http from 'http';
+
+const prisma = new PrismaClient();
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -25,17 +28,30 @@ server.listen(PORT, () => {
 
 console.log('Server up and running! :)');
 
-const messages: Message[] = [];
-
-io.on('connection', (socket: Socket) => {
+io.on('connection', async (socket: Socket) => {
   console.log(`new connection: ${socket.id}`);
+
+  const messages = await prisma.message.findMany({
+    select: {
+      nickname: true,
+      data: true,
+      date: true,
+    },
+  });
 
   socket.on('disconnect', () => {
     console.log(`socket disconnected: ${socket.id}`);
   });
 
-  socket.on('message', (message: Message) => {
+  socket.on('message', async (message: Message) => {
     messages.push(message);
+
+    await prisma.message.create({
+      data: {
+        ...message,
+      },
+    });
+
     io.emit('message', message);
   });
 
@@ -44,12 +60,12 @@ io.on('connection', (socket: Socket) => {
   });
 });
 
-const serverCommand = async () => {
-  while (true) {
-    const input: string = await new Promise(resolve => {
-      rl.question('server command: ', resolve);
-    });
-  }
-};
+// const serverCommand = async () => {
+//   while (true) {
+//     const input: string = await new Promise(resolve => {
+//       rl.question('server command: ', resolve);
+//     });
+//   }
+// };
 
-serverCommand();
+// serverCommand();
