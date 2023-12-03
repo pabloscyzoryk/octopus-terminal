@@ -19,6 +19,9 @@ import upload from './upload';
 import files from './files';
 import download from './download';
 import deleteCommand from './delete';
+import port from './port';
+import version from './version';
+import connection from './connection';
 
 const commands: Command[] = [
   banner,
@@ -40,6 +43,9 @@ const commands: Command[] = [
   files,
   download,
   deleteCommand,
+  port,
+  version,
+  connection,
 ];
 
 export default commands;

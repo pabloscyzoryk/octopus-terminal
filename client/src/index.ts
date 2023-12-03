@@ -4,7 +4,7 @@ import banner from './commands/banner';
 
 // globals
 global.isLoading = false;
-global.version = '0.0.1';
+global.version = '4.0.0-beta';
 global.prefix = '> ';
 global.nick = 'guest';
 global.basicError = 'You have and error in your octopus syntax. Type "help" for more information.';
