@@ -14,6 +14,7 @@ import chat from './chat';
 import talk from './talk';
 import roulette from './roulette';
 import ls from './ls';
+import read from './read';
 
 const commands: Command[] = [
   banner,
@@ -29,7 +30,8 @@ const commands: Command[] = [
   chat,
   talk,
   roulette,
-  ls
+  ls,
+  read
 ];
 
 export default commands;
