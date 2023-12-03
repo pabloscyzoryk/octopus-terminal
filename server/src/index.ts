@@ -44,6 +44,10 @@ io.on('connection', async (socket: Socket) => {
   });
 
   socket.on('message', async (message: Message) => {
+    if(message.nickname.length > 15) {
+      return;
+    }
+
     messages.push(message);
 
     await prisma.message.create({
