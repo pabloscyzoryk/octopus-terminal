@@ -7,7 +7,7 @@ import clear from './clear';
 import prefix from './prefix';
 import nick from './nick';
 import exit from './exit';
-import evaluate from './evaulate';
+import evaluate from './evaluate';
 import echo from './echo';
 import chatOn from './chaton';
 import chat from './chat';
