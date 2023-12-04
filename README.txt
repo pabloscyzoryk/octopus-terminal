@@ -5,6 +5,8 @@ Here are some things you should know before you start:
 
 Default password to access octopus is "szczur" (you can eaisly change it in ./client/src/index.ts)
 
+Remember to set env variables!!! (check .env.example files)
+
 After you use pkg to build the app, you might sometimes see the Fetch API experimental warning.
 It's because of the way pkg works, and it's not a problem.
 I hope one day they will fix it.
