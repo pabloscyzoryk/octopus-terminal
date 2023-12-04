@@ -1,13 +1,7 @@
 // imports
-import readline from 'readline';
 import runCommand from './runCommand';
 import clearLastLines from './clearLastLines';
-
-// readline init
-export const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
+import { rl } from './rl';
 
 const writeCommand = async () => {
   while (true) {

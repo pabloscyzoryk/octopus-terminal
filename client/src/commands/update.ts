@@ -12,9 +12,10 @@ const execute = async () => {
 
     console.log(`- Latest version: ${data} -`);
     console.log(`- Current version: ${global.version.toFixed(1)} -`);
+    console.log(`- Current serial number: ${global.serialNumber} -`);
 
     if (data > global.version) {
-      console.log(`- Update available at ${downloadUrl}-`);
+      console.log(`- Update available at: ${downloadUrl} -`);
       global.isLoading = false;
       writeCommand();
       return;

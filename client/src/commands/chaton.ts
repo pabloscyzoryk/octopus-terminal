@@ -1,7 +1,8 @@
 // imports
 import { socketEmit, socketOn, socketOff } from '../utils/socket';
 import type Message from '../types/message';
-import writeCommand, { rl } from '../utils/writeCommand';
+import writeCommand from '../utils/writeCommand';
+import { rl } from '../utils/rl';
 import Command from '../types/command';
 import clearLastLines from '../utils/clearLastLines';
 import updateChat from '../utils/updateChat';
@@ -20,7 +21,7 @@ const writeMessage = async () => {
       input = await new Promise(resolve => {
         rl.question('Enter message: ', resolve);
       });
-    } while(!input.trim())
+    } while (!input.trim());
 
     clearLastLines(2);
 
