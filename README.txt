@@ -27,6 +27,43 @@ Version should be mutable from the backend side to let users know when a new upd
 These are useful for me as a developer, you don't have to do anything with them.
 Just know that commands like "update" won't work properly in that case.
 
+------------------------------------------------------------
+
+To build the client:
+npm run build / pnpm build
+
+To run the client dev server:
+npm run dev / pnpm dev
+
+To start the client app:
+npm run start / pnpm start
+
+To compile the client app to executable:
+npm run make / pnpm make
+
+------------------------------------------------------------
+
+To build the server:
+npm run build / pnpm build
+
+To run the server dev server (on nodemon):
+npm run dev / pnpm dev
+
+To start the client server:
+npm run start / pnpm start
+
+------------------------------------------------------------
+
+To generate Prisma Client:
+npx prisma generate
+
+To push prisma schema to database:
+npx prisma db push
+
+------------------------------------------------------------
+
+Thank you!
+
 MIT License
 
 by pabloscyzoryk
