@@ -20,3 +20,5 @@ model meta {
   key   String
   value String
 }
+
+/// Add version key / value to meta table

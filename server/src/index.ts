@@ -62,6 +62,20 @@ io.on('connection', async (socket: Socket) => {
   socket.on('get-messages', () => {
     io.emit('get-messages', messages);
   });
+
+  socket.on('get-version', async () => {
+    const { value: version } = await prisma.meta.findFirst({
+      select: {
+        value: true,
+      },
+      where: {
+        key: 'version',
+      },
+    });
+
+    const versionNumeric = Number(version);
+    io.emit('get-version', versionNumeric);
+  });
 });
 
 const serverCommand = async () => {

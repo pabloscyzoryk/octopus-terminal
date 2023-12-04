@@ -23,6 +23,7 @@ import port from './port';
 import version from './version';
 import connection from './connection';
 import author from './author';
+import update from './update';
 
 const commands: Command[] = [
   banner,
@@ -48,6 +49,7 @@ const commands: Command[] = [
   version,
   connection,
   author,
+  update,
 ];
 
 export default commands;
