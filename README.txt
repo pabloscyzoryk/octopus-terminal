@@ -7,6 +7,8 @@ Default password to access octopus is "szczur" (you can eaisly change it in ./cl
 
 Remember to set env variables!!! (check .env.example files)
 
+Remember to set supabase storage bucket! (I just named it "bucket" as you can see in the source code)
+
 After you use pkg to build the app, you might sometimes see the Fetch API experimental warning.
 It's because of the way pkg works, and it's not a problem.
 I hope one day they will fix it.
