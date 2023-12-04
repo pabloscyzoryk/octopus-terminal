@@ -1,3 +1,6 @@
+// SERVER for Octopus 4.0.1-alpha
+// you can set these meta info in your database: version, downloadUrl (for octopus updates)
+
 // imports
 import { Server, type Socket } from 'socket.io';
 import { PrismaClient } from '@prisma/client';
