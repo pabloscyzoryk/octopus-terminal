@@ -5,6 +5,8 @@ Here are some things you should know before you start:
 
 Default password to access octopus is "szczur" (you can eaisly change it in ./client/src/index.ts)
 
+You should create envSetupForCompilation.ts file like in the example file.
+
 Remember to set env variables!!! (check .env.example files)
 
 Remember to set supabase storage bucket! (I just named it "bucket" as you can see in the source code)

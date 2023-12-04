@@ -11,9 +11,9 @@ global.version = 4.1;
 global.serialNumber = 'v4.0.1-alpha';
 global.prefix = '> ';
 global.nick = 'guest';
-global.basicError = 'You have and error in your octopus syntax. Type "help" for more information.';
+global.basicError = 'You have an error in your octopus syntax. Type "help" for more information.';
 
-// app
+// octopus app
 const main = async () => {
   await banner.execute();
   console.log(`Welcome to the octopus ${global.serialNumber}!

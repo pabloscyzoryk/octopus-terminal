@@ -1,9 +1,15 @@
+// imports
+import envSetupForCompilation from './envSetupForCompilation';
 import { io } from 'socket.io-client';
 import findConfig from 'find-config';
 import * as dotenv from 'dotenv';
 
 // env init
-dotenv.config({ path: findConfig('.env') });
+if (envSetupForCompilation.PORT) {
+  process.env.PORT = envSetupForCompilation.PORT;
+} else {
+  dotenv.config({ path: findConfig('.env') });
+};
 
 const PORT = process.env.PORT || 'http://localhost:8000';
 
