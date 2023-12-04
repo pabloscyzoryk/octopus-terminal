@@ -73,8 +73,28 @@ io.on('connection', async (socket: Socket) => {
       },
     });
 
+    if (!version) {
+      io.emit('get-version', { data: 0, downloadUrl: '*no version found*' });
+      return;
+    }
+
     const versionNumeric = Number(version);
-    io.emit('get-version', versionNumeric);
+
+    const { value: downloadUrl } = await prisma.meta.findFirst({
+      select: {
+        value: true,
+      },
+      where: {
+        key: 'downloadUrl',
+      },
+    });
+
+    if (!downloadUrl) {
+      io.emit('get-version', { data: versionNumeric, downloadUrl: '*no download url found*' });
+      return;
+    }
+
+    io.emit('get-version', { data: versionNumeric, downloadUrl });
   });
 });
 

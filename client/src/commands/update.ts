@@ -7,14 +7,14 @@ const execute = async () => {
   global.isLoading = true;
   socketEmit('get-version');
 
-  socketOn('get-version', (data: number) => {
+  socketOn('get-version', ({ data, downloadUrl }: { data: number; downloadUrl: string }) => {
     socketOff('get-version');
 
     console.log(`- Latest version: ${data} -`);
-    console.log(`- Current version: ${global.version} -`);
+    console.log(`- Current version: ${global.version.toFixed(1)} -`);
 
     if (data > global.version) {
-      console.log('- Update available -');
+      console.log(`- Update available at ${downloadUrl}-`);
       global.isLoading = false;
       writeCommand();
       return;

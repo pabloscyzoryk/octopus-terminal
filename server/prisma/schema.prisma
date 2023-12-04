@@ -22,3 +22,4 @@ model meta {
 }
 
 /// Add version key / value to meta table
+/// Add downloadUrl key / value to meta table
