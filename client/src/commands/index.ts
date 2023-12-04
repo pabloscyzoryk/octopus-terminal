@@ -22,6 +22,7 @@ import deleteCommand from './delete';
 import port from './port';
 import version from './version';
 import connection from './connection';
+import author from './author';
 
 const commands: Command[] = [
   banner,
@@ -46,6 +47,7 @@ const commands: Command[] = [
   port,
   version,
   connection,
+  author,
 ];
 
 export default commands;

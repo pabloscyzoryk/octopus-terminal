@@ -14,3 +14,9 @@ model message {
   data     String
   nickname String
 }
+
+model meta {
+  id    BigInt @id @default(autoincrement())
+  key   String
+  value String
+}

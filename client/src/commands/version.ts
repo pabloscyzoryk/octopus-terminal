@@ -3,6 +3,7 @@ import Command from '../types/command';
 
 const execute = () => {
   console.log('VERSION: ' + global.version);
+  console.log('SERIAL NUMBER: ' + global.serialNumber);
 };
 
 const version: Command = {
