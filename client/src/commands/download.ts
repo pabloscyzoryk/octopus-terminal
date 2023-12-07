@@ -3,6 +3,7 @@ import type Command from '../types/command';
 import supabase from '../supabase';
 import path from 'path';
 import fs from 'fs';
+import writeCommand from '../utils/writeCommand';
 
 const execute = async (input: string) => {
   const filepaths = input.split(' ');
@@ -11,7 +12,6 @@ const execute = async (input: string) => {
 
   for (let i = 0; i < filepaths.length; i++) {
     const { data, error } = await supabase.storage.from('storage').download(filepaths[i]);
-    0;
 
     if (error) {
       console.error(`ERR (${filepaths[i]}): ` + error.message);
@@ -21,13 +21,11 @@ const execute = async (input: string) => {
     const filepath = path.join(process.cwd(), filepaths[i]);
     const filename = path.basename(filepaths[i]);
 
-    const text = await data.text();
+    const blob = data;
 
-    if (!text) {
-      console.error(`ERR (${filepaths[i]}): Could convert file to a text format`);
-    }
+    const buffer = Buffer.from(await blob.arrayBuffer());
 
-    fs.writeFileSync(filepath, text);
+    fs.writeFileSync(filepath, buffer);
 
     if (fs.existsSync(filepath)) {
       console.log(`- File ${filename} downloaded successfully -`);
@@ -35,6 +33,9 @@ const execute = async (input: string) => {
       console.log(`ERR (${filename}): Could not save the file  -`);
     }
   }
+
+  global.isLoading = false;
+  writeCommand();
 };
 
 const download: Command = {
