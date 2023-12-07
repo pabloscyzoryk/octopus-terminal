@@ -5,6 +5,8 @@ declare global {
   var serialNumber: string;
   var nick: string;
   var basicError: string;
+  var cliMode: boolean;
+  var password: string;
 }
 
 export {};

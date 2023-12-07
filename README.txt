@@ -31,6 +31,11 @@ Version should be mutable from the backend side to let users know when a new upd
 These are useful for me as a developer, you don't have to do anything with them.
 Just know that commands like "update" won't work properly in that case.
 
+OCTOPUS-CLI  
+You can also use octopus in a cli version.
+Just write "octopus <password> <command>" in your terminal.
+Or just "octopus <command>" if the password is empty.
+
 ------------------------------------------------------------
 
 To build the client:

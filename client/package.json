@@ -5,11 +5,11 @@
   "main": "index.js",
   "bin": "dist/index.js",
   "scripts": {
-    "start": "node ./dist/index.js --no-experimental-fetch",
+    "start": "node ./dist/index.js",
     "build": "babel src --extensions \".ts\" --out-dir dist --watch",
-    "dev": "nodemon --quiet ./dist/index.js --no-experimental-fetch",
-    "make": "pkg -o ./package/octopus.exe . --options --no-experimental-fetch",
-    "debug": "pkg --debug --log=verbose -o ./package/octopus.exe .",
+    "dev": "npx nodemon --quiet ./dist/index.js",
+    "make": "npx pkg -o ./package/octopus.exe .",
+    "debug": "npx pkg --debug --log=verbose -o ./package/octopus.exe .",
     "octopus": "start ./package/octopus.exe"
   },
   "keywords": [

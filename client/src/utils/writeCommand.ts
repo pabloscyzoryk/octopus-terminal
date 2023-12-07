@@ -5,6 +5,7 @@ import { rl } from './rl';
 
 const writeCommand = async () => {
   while (true) {
+    if (global.cliMode) process.exit(0);
     if (global.isLoading) break;
     const input: string = await new Promise(resolve => {
       rl.question(prefix, resolve);
