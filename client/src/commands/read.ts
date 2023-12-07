@@ -13,7 +13,7 @@ const execute = (input: string) => {
 
   fs.readFile(filepath, 'utf8', (err: any, data: any) => {
     if (err) {
-      console.error(err);
+      console.error('ERR: ' + err);
       return;
     }
     console.log(data);
