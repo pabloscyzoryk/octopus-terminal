@@ -1,9 +1,9 @@
 // imports
-import { isConnected, socketId } from '../utils/socket';
+import { socketId } from '../utils/socket';
 import type Command from '../types/command';
 
 const execute = () => {
-  if (isConnected) {
+  if (socketId()) {
     console.log('Connected to the server with id: ' + socketId());
     return;
   }

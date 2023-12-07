@@ -5,7 +5,7 @@ import path from 'path';
 import fs from 'fs';
 
 const execute = (input: string) => {
-  const loc = input ? path.join(__dirname, input) : __dirname;
+  const loc = input ? path.join(process.cwd(), input) : process.cwd();
 
   if (!fs.existsSync(loc)) {
     console.log('- Directory not found -');

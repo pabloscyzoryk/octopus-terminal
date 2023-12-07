@@ -18,7 +18,7 @@ const execute = async (input: string) => {
       continue;
     }
 
-    const filepath = path.join(__dirname, filepaths[i]);
+    const filepath = path.join(process.cwd(), filepaths[i]);
     const filename = path.basename(filepaths[i]);
 
     const text = await data.text();

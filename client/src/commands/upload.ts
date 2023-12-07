@@ -11,7 +11,7 @@ const execute = async (input: string) => {
   global.isLoading = true;
 
   for (let i = 0; i < filepaths.length; i++) {
-    const filepath = path.join(__dirname, filepaths[i]);
+    const filepath = path.join(process.cwd(), filepaths[i]);
     const filename = path.basename(filepaths[i]);
 
     if (!fs.existsSync(filepath)) {

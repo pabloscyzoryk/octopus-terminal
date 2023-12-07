@@ -4,7 +4,7 @@ import path from 'path';
 import fs from 'fs';
 
 const execute = (input: string) => {
-  const filepath = path.join(__dirname, input);
+  const filepath = path.join(process.cwd(), input);
 
   if (!fs.existsSync(filepath)) {
     console.log('- File not found -');
