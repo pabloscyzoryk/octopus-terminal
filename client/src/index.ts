@@ -14,8 +14,8 @@ global.prefix = '> ';
 global.nick = 'guest';
 global.basicError = 'You have an error in your octopus syntax. Type "help" for more information.';
 global.cliMode = false;
-global.password = ''; // <- password for cli and the octopus app (leave an empty string to use cli and the app without a password)
-// you can change it, but "szczur" is nice :)
+global.password = 'szczur'; // <- password for cli and the octopus app (leave an empty string to use cli and the app without a password)
+                            // you can change it, but "szczur" is nice :)
 
 cli(process.argv); // <- cli mode open, comment this line to disable
 
@@ -43,7 +43,7 @@ let prompt = '';
         rl.question(prompt, resolve);
       });
       clearLastLines(1);
-    } while (input != global.password);
+    } while (input !== global.password);
   }
   console.clear();
   await main();

@@ -25,6 +25,7 @@ import connection from './connection';
 import author from './author';
 import update from './update';
 import evars from './evars';
+import sys from './sys';
 
 const commands: Command[] = [
   banner,
@@ -51,7 +52,8 @@ const commands: Command[] = [
   connection,
   author,
   update,
-  evars
+  evars,
+  sys
 ];
 
 export default commands;
